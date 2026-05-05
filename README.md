@@ -7,6 +7,8 @@
 1. Tiny stories: https://arxiv.org/pdf/2305.07759 
 2. Probabilities: https://www.deeplearningbook.org/contents/prob.html 
 3. Conditional predictability: https://www.probabilitycourse.com/chapter1/1_4_0_conditional_probability.php
+4. Language model alignment: https://arxiv.org/pdf/2407.02273 
+5. Why algorithms aare not moral agents: https://link.springer.com/article/10.1007/s00146-021-01189-x
 
 Reflection is an important thing in research, goes beyond methodology.
 we have contextual cues, real world impact and stereotpes(generalizing features/aspects based on group of people, i.e I am a Kalenjin so I should be good in running 😂) & biases(unfair assumptions) - My reflections of this: context matters it makes a language model predict the next thing alaso depending on the data its trained on no wonder based on my experience with LLMS they are bad at generating good ideas, usually more generic. 
@@ -29,3 +31,5 @@ Tokenization - splitting sequences of text into words
 Doing the coding challenges without AI is hard. I admit I had to look for a little help understanding the problem in lab_1_2 challenge 2
 
 Trigram model generates more senssible continuations than bigram. even though to find a valid continuation starting sentence is haarder on the trigram than bigram
+
+Trolley problem 
