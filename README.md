@@ -33,3 +33,11 @@ Doing the coding challenges without AI is hard. I admit I had to look for a litt
 Trigram model generates more senssible continuations than bigram. even though to find a valid continuation starting sentence is haarder on the trigram than bigram
 
 Trolley problem 
+
+Comparing ngram and transformer, qualities:
+1. Fluency - does it read naturally
+2. Coherence - does it make logical sense and stay on the topic
+3. Relevance - does it fit the context or prompt
+4. Bias - does the output promote inequalities
+
+Greedy sampling - making model output more deterministic to ensure token with higher probability is always chosen
