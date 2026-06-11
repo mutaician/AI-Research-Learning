@@ -1,0 +1,912 @@
+AI-Research main  ? ❯ source tf220/bin/activate
+
+AI-Research main  ? ❯ uv pip install ipykernel pip
+Using Python 3.12.13 environment at: tf220
+Resolved 31 packages in 3.63s
+Prepared 9 packages in 56.25s
+Installed 27 packages in 147ms
+ + asttokens==3.0.1
+ + comm==0.2.3
+ + debugpy==1.8.21
+ + decorator==5.3.1
+ + executing==2.2.1
+ + ipykernel==7.3.0
+ + ipython==9.14.1
+ + ipython-pygments-lexers==1.1.1
+ + jedi==0.20.0
+ + jupyter-client==8.9.1
+ + jupyter-core==5.9.1
+ + matplotlib-inline==0.2.2
+ + nest-asyncio2==1.7.2
+ + parso==0.8.7
+ + pexpect==4.9.0
+ + pip==26.1.2
+ + platformdirs==4.10.0
+ + prompt-toolkit==3.0.52
+ + psutil==7.2.2
+ + ptyprocess==0.7.0
+ + pure-eval==0.2.3
+ + python-dateutil==2.9.0.post0
+ + pyzmq==27.1.0
+ + stack-data==0.6.3
+ + tornado==6.5.7
+ + traitlets==5.15.1
+ + wcwidth==0.8.1
+
+AI-Research main  ? ❯ uv pip install nvidia-cudnn-cu12 nvidia-cublas-cu12 nvidia-nvcc-cu12
+Using Python 3.12.13 environment at: tf220
+  × No solution found when resolving dependencies:
+  ╰─▶ Because nvidia-nvcc-cu12 was not found in the package registry and you require nvidia-nvcc-cu12, we can conclude that your requirements are unsatisfiable.
+
+AI-Research main  ? ✗ uv pip install tensorflow[and-cuda]
+Using Python 3.12.13 environment at: tf220
+Resolved 50 packages in 2.05s
+Prepared 3 packages in 5m 50s
+Installed 12 packages in 92ms
+ + nvidia-cublas-cu12==12.9.2.10
+ + nvidia-cuda-cupti-cu12==12.9.79
+ + nvidia-cuda-nvcc-cu12==12.9.86
+ + nvidia-cuda-nvrtc-cu12==12.9.86
+ + nvidia-cuda-runtime-cu12==12.9.79
+ + nvidia-cudnn-cu12==9.23.1.3
+ + nvidia-cufft-cu12==11.4.1.4
+ + nvidia-curand-cu12==10.3.10.19
+ + nvidia-cusolver-cu12==11.7.5.82
+ + nvidia-cusparse-cu12==12.5.10.65
+ + nvidia-nccl-cu12==2.30.7
+ + nvidia-nvjitlink-cu12==12.9.86
+
+AI-Research main  ? ❯ which python
+/home/mutaician/Learn/AI-Research/tf220/bin/python
+
+AI-Research main  ? ❯ python test.py
+2026-06-10 18:56:33.145597: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 18:56:33.178593: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-10 18:56:33.888137: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Traceback (most recent call last):
+  File "/home/mutaician/Learn/AI-Research/test.py", line 17, in <module>
+    tf.isg
+AttributeError: module 'tensorflow' has no attribute 'isg'
+
+AI-Research main  ? ✗ python test.py
+2026-06-10 18:56:46.188098: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 18:56:46.216575: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-10 18:56:46.876817: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2.20.0
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1781107007.178443   28720 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+W0000 00:00:1781107007.185498   28720 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1781107007.275506   28720 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1464 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0
+2026-06-10 18:56:47.295214: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleLoadData(&module, data)' failed with 'CUDA_ERROR_INVALID_PTX'
+
+2026-06-10 18:56:47.295231: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleGetFunction(&function, module, kernel_name)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+
+2026-06-10 18:56:47.295241: W tensorflow/core/framework/op_kernel.cc:1842] INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+2026-06-10 18:56:47.295249: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+Traceback (most recent call last):
+  File "/home/mutaician/Learn/AI-Research/test.py", line 23, in <module>
+    print(a + b)
+          ~~^~~
+  File "/home/mutaician/Learn/AI-Research/tf220/lib/python3.12/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/mutaician/Learn/AI-Research/tf220/lib/python3.12/site-packages/tensorflow/python/framework/ops.py", line 6027, in raise_from_not_ok_status
+    raise core._status_to_exception(e) from None  # pylint: disable=protected-access
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InternalError: {{function_node __wrapped__AddV2_device_/job:localhost/replica:0/task:0/device:GPU:0}} 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE' [Op:AddV2] name: 
+
+AI-Research main  ? ✗ uv pip ls
+Using Python 3.12.13 environment at: tf220
+Package                  Version
+------------------------ -----------
+absl-py                  2.4.0
+asttokens                3.0.1
+astunparse               1.6.3
+certifi                  2026.5.20
+charset-normalizer       3.4.7
+comm                     0.2.3
+debugpy                  1.8.21
+decorator                5.3.1
+executing                2.2.1
+flatbuffers              25.12.19
+gast                     0.7.0
+google-pasta             0.2.0
+grpcio                   1.81.0
+h5py                     3.16.0
+idna                     3.18
+ipykernel                7.3.0
+ipython                  9.14.1
+ipython-pygments-lexers  1.1.1
+jedi                     0.20.0
+jupyter-client           8.9.1
+jupyter-core             5.9.1
+keras                    3.14.1
+libclang                 18.1.1
+markdown                 3.10.2
+markdown-it-py           4.2.0
+markupsafe               3.0.3
+matplotlib-inline        0.2.2
+mdurl                    0.1.2
+ml-dtypes                0.5.4
+namex                    0.1.0
+nest-asyncio2            1.7.2
+numpy                    2.4.6
+nvidia-cublas-cu12       12.9.2.10
+nvidia-cuda-cupti-cu12   12.9.79
+nvidia-cuda-nvcc-cu12    12.9.86
+nvidia-cuda-nvrtc-cu12   12.9.86
+nvidia-cuda-runtime-cu12 12.9.79
+nvidia-cudnn-cu12        9.23.1.3
+nvidia-cufft-cu12        11.4.1.4
+nvidia-curand-cu12       10.3.10.19
+nvidia-cusolver-cu12     11.7.5.82
+nvidia-cusparse-cu12     12.5.10.65
+nvidia-nccl-cu12         2.30.7
+nvidia-nvjitlink-cu12    12.9.86
+opt-einsum               3.4.0
+optree                   0.19.1
+packaging                26.2
+parso                    0.8.7
+pexpect                  4.9.0
+pillow                   12.2.0
+pip                      26.1.2
+platformdirs             4.10.0
+prompt-toolkit           3.0.52
+protobuf                 7.35.0
+psutil                   7.2.2
+ptyprocess               0.7.0
+pure-eval                0.2.3
+pygments                 2.20.0
+python-dateutil          2.9.0.post0
+pyzmq                    27.1.0
+requests                 2.34.2
+rich                     15.0.0
+setuptools               82.0.1
+six                      1.17.0
+stack-data               0.6.3
+tensorboard              2.20.0
+tensorboard-data-server  0.7.2
+tensorflow               2.20.0
+termcolor                3.3.0
+tornado                  6.5.7
+traitlets                5.15.1
+typing-extensions        4.15.0
+urllib3                  2.7.0
+wcwidth                  0.8.1
+werkzeug                 3.1.8
+wheel                    0.47.0
+wrapt                    2.2.1
+
+AI-Research main  ? ❯ uv pip install tensorflow[and-cuda]==2.21.0
+Using Python 3.12.13 environment at: tf220
+Resolved 44 packages in 796ms
+Uninstalled 2 packages in 316ms
+Installed 2 packages in 610ms
+ - h5py==3.16.0
+ + h5py==3.14.0
+ - tensorflow==2.20.0
+ + tensorflow==2.21.0
+
+AI-Research main  ? ❯ uv pip ls | grep "tensorflow"
+Using Python 3.12.13 environment at: tf220
+tensorflow               2.21.0
+
+AI-Research main  ? ❯ cat test.py
+# # test if the CUDA_ERROR_INVALID_HANDLE is due to libraries or gpu
+# #  I initialised a separate environment and installed tensorflow separately in it so this code used that environment 
+
+# import tensorflow as tf
+
+# a = tf.constant([1,2])
+# b = tf.constant([3,4])
+
+# print(a + b)
+
+# # results the above code runs so the issue is jac
+
+# another test with tensorflow==2.20.0
+
+import tensorflow as tf
+
+print(tf.__version__)
+print(tf.config.list_physical_devices("GPU"))
+
+a = tf.constant([1.0, 2.0])
+b = tf.constant([2.0, 4.0])
+
+print(a + b)
+AI-Research main  ? ❯ python test.py
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107104.731594   30414 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781107104.863348   30414 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107107.263198   30414 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2.21.0
+W0000 00:00:1781107107.700028   30414 gpu_device.cc:2365] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+[]
+tf.Tensor([3. 6.], shape=(2,), dtype=float32)
+
+AI-Research main  ? ❯ deactivate
+
+AI-Research main  ? ❯ uv venv tf-gpu
+Using CPython 3.12.13
+Creating virtual environment at: tf-gpu
+Activate with: source tf-gpu/bin/activate
+
+AI-Research main  ? ❯ uv python upgrade
+All versions already on latest supported patch release
+
+AI-Research main  ? ❯ source tf-gpu/bin/activate
+
+AI-Research main  ? ❯ which python
+/home/mutaician/Learn/AI-Research/tf-gpu/bin/python
+
+AI-Research main  ? ❯ uv pip install --upgrade pip
+Using Python 3.12.13 environment at: tf-gpu
+Resolved 1 package in 683ms
+Prepared 1 package in 0.46ms
+Installed 1 package in 22ms
+ + pip==26.1.2
+
+AI-Research main  ? ❯ uv pip install tensorflow[and-cuda]
+Using Python 3.12.13 environment at: tf-gpu
+Resolved 44 packages in 1.66s
+Installed 44 packages in 345ms
+ + absl-py==2.4.0
+ + astunparse==1.6.3
+ + certifi==2026.5.20
+ + charset-normalizer==3.4.7
+ + flatbuffers==25.12.19
+ + gast==0.7.0
+ + google-pasta==0.2.0
+ + grpcio==1.81.0
+ + h5py==3.14.0
+ + idna==3.18
+ + keras==3.14.1
+ + libclang==18.1.1
+ + markdown-it-py==4.2.0
+ + mdurl==0.1.2
+ + ml-dtypes==0.5.4
+ + namex==0.1.0
+ + numpy==2.4.6
+ + nvidia-cublas-cu12==12.9.2.10
+ + nvidia-cuda-cupti-cu12==12.9.79
+ + nvidia-cuda-nvcc-cu12==12.9.86
+ + nvidia-cuda-nvrtc-cu12==12.9.86
+ + nvidia-cuda-runtime-cu12==12.9.79
+ + nvidia-cudnn-cu12==9.23.1.3
+ + nvidia-cufft-cu12==11.4.1.4
+ + nvidia-curand-cu12==10.3.10.19
+ + nvidia-cusolver-cu12==11.7.5.82
+ + nvidia-cusparse-cu12==12.5.10.65
+ + nvidia-nccl-cu12==2.30.7
+ + nvidia-nvjitlink-cu12==12.9.86
+ + opt-einsum==3.4.0
+ + optree==0.19.1
+ + packaging==26.2
+ + protobuf==7.35.0
+ + pygments==2.20.0
+ + requests==2.34.2
+ + rich==15.0.0
+ + setuptools==82.0.1
+ + six==1.17.0
+ + tensorflow==2.21.0
+ + termcolor==3.3.0
+ + typing-extensions==4.15.0
+ + urllib3==2.7.0
+ + wheel==0.47.0
+ + wrapt==2.2.1
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107405.458628   35248 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781107405.594747   35248 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107408.260375   35248 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1781107409.337965   35248 gpu_device.cc:2365] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+tf.Tensor(608.27185, shape=(), dtype=float32)
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107428.438728   35648 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781107428.470274   35648 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107429.147116   35648 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1781107429.329216   35648 gpu_device.cc:2365] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+[]
+
+AI-Research main  ? ❯ pushd $(dirname $(python -c 'print(__import__("tensorflow").__file__)'))
+ln -svf ../nvidia/*/lib/*.so* .
+popd
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107454.812587   36040 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781107454.837838   36040 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107455.388914   36040 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+~/Learn/AI-Research/tf-gpu/lib/python3.12/site-packages/tensorflow ~/Learn/AI-Research
+'./libcublasLt.so.12' -> '../nvidia/cublas/lib/libcublasLt.so.12'
+'./libcublas.so.12' -> '../nvidia/cublas/lib/libcublas.so.12'
+'./libnvblas.so.12' -> '../nvidia/cublas/lib/libnvblas.so.12'
+'./libcheckpoint.so' -> '../nvidia/cuda_cupti/lib/libcheckpoint.so'
+'./libcupti.so.12' -> '../nvidia/cuda_cupti/lib/libcupti.so.12'
+'./libnvperf_host.so' -> '../nvidia/cuda_cupti/lib/libnvperf_host.so'
+'./libnvperf_target.so' -> '../nvidia/cuda_cupti/lib/libnvperf_target.so'
+'./libpcsamplingutil.so' -> '../nvidia/cuda_cupti/lib/libpcsamplingutil.so'
+'./libnvrtc.alt.so.12' -> '../nvidia/cuda_nvrtc/lib/libnvrtc.alt.so.12'
+'./libnvrtc-builtins.alt.so.12.9' -> '../nvidia/cuda_nvrtc/lib/libnvrtc-builtins.alt.so.12.9'
+'./libnvrtc-builtins.so.12.9' -> '../nvidia/cuda_nvrtc/lib/libnvrtc-builtins.so.12.9'
+'./libnvrtc.so.12' -> '../nvidia/cuda_nvrtc/lib/libnvrtc.so.12'
+'./libcudart.so.12' -> '../nvidia/cuda_runtime/lib/libcudart.so.12'
+'./libcudnn_adv.so.9' -> '../nvidia/cudnn/lib/libcudnn_adv.so.9'
+'./libcudnn_cnn.so.9' -> '../nvidia/cudnn/lib/libcudnn_cnn.so.9'
+'./libcudnn_engines_precompiled.so.9' -> '../nvidia/cudnn/lib/libcudnn_engines_precompiled.so.9'
+'./libcudnn_engines_runtime_compiled.so.9' -> '../nvidia/cudnn/lib/libcudnn_engines_runtime_compiled.so.9'
+'./libcudnn_engines_tensor_ir.so.9' -> '../nvidia/cudnn/lib/libcudnn_engines_tensor_ir.so.9'
+'./libcudnn_ext.so.9' -> '../nvidia/cudnn/lib/libcudnn_ext.so.9'
+'./libcudnn_graph.so.9' -> '../nvidia/cudnn/lib/libcudnn_graph.so.9'
+'./libcudnn_heuristic.so.9' -> '../nvidia/cudnn/lib/libcudnn_heuristic.so.9'
+'./libcudnn_ops.so.9' -> '../nvidia/cudnn/lib/libcudnn_ops.so.9'
+'./libcudnn.so.9' -> '../nvidia/cudnn/lib/libcudnn.so.9'
+'./libcufft.so.11' -> '../nvidia/cufft/lib/libcufft.so.11'
+'./libcufftw.so.11' -> '../nvidia/cufft/lib/libcufftw.so.11'
+'./libcurand.so.10' -> '../nvidia/curand/lib/libcurand.so.10'
+'./libcusolverMg.so.11' -> '../nvidia/cusolver/lib/libcusolverMg.so.11'
+'./libcusolver.so.11' -> '../nvidia/cusolver/lib/libcusolver.so.11'
+'./libcusparse.so.12' -> '../nvidia/cusparse/lib/libcusparse.so.12'
+'./libnccl.so.2' -> '../nvidia/nccl/lib/libnccl.so.2'
+'./libnvJitLink.so.12' -> '../nvidia/nvjitlink/lib/libnvJitLink.so.12'
+~/Learn/AI-Research
+
+AI-Research main  ? ❯ ln -sf $(find $(dirname $(dirname $(python -c "import nvidia.cuda_nvcc;         
+print(nvidia.cuda_nvcc.__file__)"))/*/bin/) -name ptxas -print -quit) $VIRTUAL_ENV/bin/ptxas
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107482.455411   36658 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781107482.484474   36658 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107483.146665   36658 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1781107483.322086   36658 gpu_device.cc:2365] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+[]
+
+AI-Research main  ? ❯ # Or with uv (faster, isolated)
+uv tool install env-doctor
+uvx env-doctor check
+Resolved 48 packages in 4.09s
+Prepared 17 packages in 5.33s
+Installed 48 packages in 60ms
+ + annotated-doc==0.0.4
+ + annotated-types==0.7.0
+ + anyio==4.13.0
+ + attrs==26.1.0
+ + certifi==2026.5.20
+ + cffi==2.0.0
+ + charset-normalizer==3.4.7
+ + click==8.4.1
+ + cryptography==48.0.1
+ + env-doctor==0.3.3
+ + filelock==3.29.2
+ + fsspec==2026.4.0
+ + h11==0.16.0
+ + hf-xet==1.5.1
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + httpx-sse==0.4.3
+ + huggingface-hub==1.18.0
+ + idna==3.18
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + markdown-it-py==4.2.0
+ + mcp==1.27.2
+ + mdurl==0.1.2
+ + nvidia-ml-py==13.610.43
+ + packaging==25.0
+ + pycparser==3.0
+ + pydantic==2.13.4
+ + pydantic-core==2.46.4
+ + pydantic-settings==2.14.1
+ + pygments==2.20.0
+ + pyjwt==2.13.0
+ + python-dotenv==1.2.2
+ + python-multipart==0.0.32
+ + pyyaml==6.0.3
+ + referencing==0.37.0
+ + requests==2.34.2
+ + rich==15.0.0
+ + rpds-py==2026.5.1
+ + shellingham==1.5.4
+ + sse-starlette==3.4.4
+ + starlette==1.2.1
+ + tqdm==4.68.2
+ + typer==0.25.1
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+ + urllib3==2.7.0
+ + uvicorn==0.49.0
+Installed 3 executables: doctor, env-doctor, env-doctor-mcp
+Checking for latest compatibility data... Updated.
+
+🩺  ENV-DOCTOR DIAGNOSIS  🩺
+==============================
+✅  Wsl2: native_linux
+    → Kernel Version: 7.0.9-arch2-1
+    → Environment: Native Linux
+------------------------------
+✅  GPU Driver Found: 595.71
+    → Max Supported CUDA: 13.1
+    → Detection Method: nvidia-smi
+ℹ️   System CUDA (nvcc) not found.
+    → Add to LD_LIBRARY_PATH: /opt/cuda/lib64
+------------------------------
+✅  cuDNN: v9
+❌  torch is NOT installed.
+❌  tensorflow is NOT installed.
+❌  jax is NOT installed.
+------------------------------
+✅  Python 3.12: Compatible with all 0 checked libraries
+
+🔗  SYSTEM LINKING (For TensorFlow/JAX)
+⚠️   LD_LIBRARY_PATH is unset.
+    → For TensorFlow/JAX, you may need to set this.
+
+🦜 CODE MIGRATION CHECK (LangChain / Pydantic / OpenAI)
+    Analyzing pydantic (v2.13.4) usage...
+    ✅ No deprecated imports detected.
+
+AI-Research main  ? ❯ uv env-doctor cudnn-info
+error: unrecognized subcommand 'env-doctor'
+
+  tip: a similar subcommand exists: 'v'
+
+Usage: uv [OPTIONS] <COMMAND>
+
+For more information, try '--help'.
+
+AI-Research main  ? ✗ 
+Display all 4222 possibilities? (y or n)
+
+AI-Research main  ? ✗ uvx env-doctor cudnn-info
+
+============================================================
+🧠  DETAILED CUDNN ANALYSIS
+============================================================
+
+📌  cuDNN Version: 9
+    Primary Library: /usr/lib64/libcudnn.so.9.22.0
+
+📚  Multiple cuDNN Libraries Found: 60
+    • /usr/lib64/libcudnn.so
+    • /usr/lib64/libcudnn.so.9
+    • /usr/lib64/libcudnn.so.9.22.0
+    • /usr/lib64/libcudnn_adv.so
+    • /usr/lib64/libcudnn_adv.so.9
+    • /usr/lib64/libcudnn_adv.so.9.22.0
+    • /usr/lib64/libcudnn_cnn.so
+    • /usr/lib64/libcudnn_cnn.so.9
+    • /usr/lib64/libcudnn_cnn.so.9.22.0
+    • /usr/lib64/libcudnn_engines_precompiled.so
+    • /usr/lib64/libcudnn_engines_precompiled.so.9
+    • /usr/lib64/libcudnn_engines_precompiled.so.9.22.0
+    • /usr/lib64/libcudnn_engines_runtime_compiled.so
+    • /usr/lib64/libcudnn_engines_runtime_compiled.so.9
+    • /usr/lib64/libcudnn_engines_runtime_compiled.so.9.22.0
+    • /usr/lib64/libcudnn_engines_tensor_ir.so
+    • /usr/lib64/libcudnn_engines_tensor_ir.so.9
+    • /usr/lib64/libcudnn_engines_tensor_ir.so.9.22.0
+    • /usr/lib64/libcudnn_ext.so
+    • /usr/lib64/libcudnn_ext.so.9
+    • /usr/lib64/libcudnn_ext.so.9.22.0
+    • /usr/lib64/libcudnn_graph.so
+    • /usr/lib64/libcudnn_graph.so.9
+    • /usr/lib64/libcudnn_graph.so.9.22.0
+    • /usr/lib64/libcudnn_heuristic.so
+    • /usr/lib64/libcudnn_heuristic.so.9
+    • /usr/lib64/libcudnn_heuristic.so.9.22.0
+    • /usr/lib64/libcudnn_ops.so
+    • /usr/lib64/libcudnn_ops.so.9
+    • /usr/lib64/libcudnn_ops.so.9.22.0
+    • /usr/lib/libcudnn.so
+    • /usr/lib/libcudnn.so.9
+    • /usr/lib/libcudnn.so.9.22.0
+    • /usr/lib/libcudnn_adv.so
+    • /usr/lib/libcudnn_adv.so.9
+    • /usr/lib/libcudnn_adv.so.9.22.0
+    • /usr/lib/libcudnn_cnn.so
+    • /usr/lib/libcudnn_cnn.so.9
+    • /usr/lib/libcudnn_cnn.so.9.22.0
+    • /usr/lib/libcudnn_engines_precompiled.so
+    • /usr/lib/libcudnn_engines_precompiled.so.9
+    • /usr/lib/libcudnn_engines_precompiled.so.9.22.0
+    • /usr/lib/libcudnn_engines_runtime_compiled.so
+    • /usr/lib/libcudnn_engines_runtime_compiled.so.9
+    • /usr/lib/libcudnn_engines_runtime_compiled.so.9.22.0
+    • /usr/lib/libcudnn_engines_tensor_ir.so
+    • /usr/lib/libcudnn_engines_tensor_ir.so.9
+    • /usr/lib/libcudnn_engines_tensor_ir.so.9.22.0
+    • /usr/lib/libcudnn_ext.so
+    • /usr/lib/libcudnn_ext.so.9
+    • /usr/lib/libcudnn_ext.so.9.22.0
+    • /usr/lib/libcudnn_graph.so
+    • /usr/lib/libcudnn_graph.so.9
+    • /usr/lib/libcudnn_graph.so.9.22.0
+    • /usr/lib/libcudnn_heuristic.so
+    • /usr/lib/libcudnn_heuristic.so.9
+    • /usr/lib/libcudnn_heuristic.so.9.22.0
+    • /usr/lib/libcudnn_ops.so
+    • /usr/lib/libcudnn_ops.so.9
+    • /usr/lib/libcudnn_ops.so.9.22.0
+
+🔧  Platform: Linux
+
+🔗  Symlink Status:
+    ✅ /usr/lib64/libcudnn.so
+    ✅ /usr/lib/libcudnn.so
+
+🔗  CUDA Compatibility:
+    ✅ Cannot verify - CUDA toolkit not detected
+
+============================================================
+
+AI-Research main  ? ❯ env-doctor
+usage: env-doctor [-h] {check,cuda-info,cuda-install,cudnn-info,wsl,dockerfile,docker-compose,python-compat,install,scan,debug,model,export,validate,init,dashboard,report} ...
+
+env-doctor: The AI Environment Fixer
+
+positional arguments:
+  {check,cuda-info,cuda-install,cudnn-info,wsl,dockerfile,docker-compose,python-compat,install,scan,debug,model,export,validate,init,dashboard,report}
+                        Available commands
+    check               Diagnose environment compatibility
+    cuda-info           Detailed CUDA toolkit analysis
+    cuda-install        Step-by-step CUDA Toolkit installation guide
+    cudnn-info          Detailed cuDNN library analysis
+    wsl                 Detailed WSL environment analysis
+    dockerfile          Validate Dockerfile for GPU/CUDA configuration issues
+    docker-compose      Validate docker-compose.yml for GPU configuration issues
+    python-compat       Check Python version compatibility with AI libraries
+    install             Get safe installation command for a library
+    scan                Scan local files for AI library imports
+    debug               Show detailed detector information (for troubleshooting)
+    model               Check if AI model fits on your GPU
+    export              Export environment as a shareable JSON spec
+    validate            Validate current environment against a spec file
+    init                Generate CI/CD integration files
+    dashboard           Start the web dashboard server
+    report              Manage periodic reporting to a dashboard
+
+options:
+  -h, --help            show this help message and exit
+
+Examples:
+  env-doctor check              # Diagnose your environment
+  env-doctor cuda-info          # Detailed CUDA toolkit analysis
+  env-doctor cuda-install       # Step-by-step CUDA installation guide
+  env-doctor cuda-install 12.4  # Install specific CUDA version
+  env-doctor cudnn-info         # Detailed cuDNN library analysis
+  env-doctor wsl                # Detailed WSL environment analysis
+  env-doctor dockerfile         # Validate Dockerfile for GPU issues
+  env-doctor docker-compose     # Validate docker-compose.yml for GPU issues
+  env-doctor model llama-3-8b   # Check if model fits on your GPU
+  env-doctor model --list       # List all available models
+  env-doctor python-compat      # Check Python version compatibility
+  env-doctor install torch      # Get safe install command for PyTorch
+  env-doctor scan               # Scan project for AI library imports
+  env-doctor debug              # Show detailed detector information
+  env-doctor export             # Export environment as shareable JSON spec
+  env-doctor validate spec.json # Validate environment against a spec
+  env-doctor dashboard          # Start web dashboard for fleet monitoring
+  env-doctor report install     # Set up periodic reporting to a dashboard
+        
+
+AI-Research main  ? ❯ env-doctor check
+
+🩺  ENV-DOCTOR DIAGNOSIS  🩺
+==============================
+✅  Wsl2: native_linux
+    → Kernel Version: 7.0.9-arch2-1
+    → Environment: Native Linux
+------------------------------
+✅  GPU Driver Found: 595.71
+    → Max Supported CUDA: 13.1
+    → Detection Method: nvidia-smi
+ℹ️   System CUDA (nvcc) not found.
+    → Add to LD_LIBRARY_PATH: /opt/cuda/lib64
+------------------------------
+✅  cuDNN: v9
+❌  torch is NOT installed.
+❌  tensorflow is NOT installed.
+❌  jax is NOT installed.
+------------------------------
+✅  Python 3.12: Compatible with all 0 checked libraries
+
+🔗  SYSTEM LINKING (For TensorFlow/JAX)
+⚠️   LD_LIBRARY_PATH is unset.
+    → For TensorFlow/JAX, you may need to set this.
+
+🦜 CODE MIGRATION CHECK (LangChain / Pydantic / OpenAI)
+    Analyzing pydantic (v2.13.4) usage...
+    ✅ No deprecated imports detected.
+
+AI-Research main  ? ❯ env-doctor install tensorflow
+
+🩺  PRESCRIPTION FOR: tensorflow
+Detected Driver: 595.71 (Supports up to CUDA 13.1)
+
+⬇️   Run this command:
+---------------------------------------------------
+Manual verification needed
+---------------------------------------------------
+
+AI-Research main  ? ❯ which python
+/home/mutaician/Learn/AI-Research/tf-gpu/bin/python
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107969.007665   42027 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781107969.035319   42027 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781107969.573879   42027 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1781107969.728498   42027 gpu_device.cc:2365] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+[]
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781108133.243343   44083 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781108133.270040   44083 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781108133.826999   44083 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1781108133.986568   44083 gpu_device.cc:2365] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+[]
+
+AI-Research main  ? ❯ nvcc -v
+nvcc fatal   : No input files specified; use option --help for more information
+
+AI-Research main  ? ✗ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2026 NVIDIA Corporation
+Built on Thu_Mar_19_11:12:51_PM_PDT_2026
+Cuda compilation tools, release 13.2, V13.2.78
+Build cuda_13.2.r13.2/compiler.37668154_0
+
+AI-Research main  ? ❯ echo $VIRTUAL_ENV
+/home/mutaician/Learn/AI-Research/tf-gpu
+
+AI-Research main  ? ❯ deactivatae
+bash: command not found: deactivatae
+
+AI-Research main  ? ✗ source .env/bin/activate
+bash: .env/bin/activate: No such file or directory
+
+AI-Research main  ? ✗ source .venv/bin/activate
+
+AI-Research main  ? ❯ which python
+/home/mutaician/Learn/AI-Research/.venv/bin/python
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+2026-06-10 19:19:37.171877: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 19:19:37.202998: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1781108379.658532   47092 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+2026-06-10 19:19:51.735965: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 19:19:51.771563: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1781108393.396183   47427 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1781108393.403965   47427 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1781108393.494868   47427 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5796 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0
+2026-06-10 19:19:53.824080: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleLoadData(&module, data)' failed with 'CUDA_ERROR_INVALID_PTX'
+
+2026-06-10 19:19:53.824097: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleGetFunction(&function, module, kernel_name)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+
+2026-06-10 19:19:53.824104: W tensorflow/core/framework/op_kernel.cc:1842] INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+2026-06-10 19:19:53.824112: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/mutaician/Learn/AI-Research/.venv/lib/python3.12/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/mutaician/Learn/AI-Research/.venv/lib/python3.12/site-packages/tensorflow/python/framework/ops.py", line 6027, in raise_from_not_ok_status
+    raise core._status_to_exception(e) from None  # pylint: disable=protected-access
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InternalError: {{function_node __wrapped__Mul_device_/job:localhost/replica:0/task:0/device:GPU:0}} 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE' [Op:Mul] name: 
+
+AI-Research main  ? ✗ pushd $(dirname $(python -c 'print(__import__("tensorflow").__file__)'))
+ln -svf ../nvidia/*/lib/*.so* .
+popd
+2026-06-10 19:20:35.611275: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 19:20:35.634983: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+~/Learn/AI-Research/.venv/lib/python3.12/site-packages/tensorflow ~/Learn/AI-Research
+'./libcublasLt.so.12' -> '../nvidia/cublas/lib/libcublasLt.so.12'
+'./libcublas.so.12' -> '../nvidia/cublas/lib/libcublas.so.12'
+'./libnvblas.so.12' -> '../nvidia/cublas/lib/libnvblas.so.12'
+'./libcheckpoint.so' -> '../nvidia/cuda_cupti/lib/libcheckpoint.so'
+'./libcupti.so.12' -> '../nvidia/cuda_cupti/lib/libcupti.so.12'
+'./libnvperf_host.so' -> '../nvidia/cuda_cupti/lib/libnvperf_host.so'
+'./libnvperf_target.so' -> '../nvidia/cuda_cupti/lib/libnvperf_target.so'
+'./libpcsamplingutil.so' -> '../nvidia/cuda_cupti/lib/libpcsamplingutil.so'
+'./libnvrtc.alt.so.12' -> '../nvidia/cuda_nvrtc/lib/libnvrtc.alt.so.12'
+'./libnvrtc-builtins.alt.so.12.9' -> '../nvidia/cuda_nvrtc/lib/libnvrtc-builtins.alt.so.12.9'
+'./libnvrtc-builtins.so.12.9' -> '../nvidia/cuda_nvrtc/lib/libnvrtc-builtins.so.12.9'
+'./libnvrtc.so.12' -> '../nvidia/cuda_nvrtc/lib/libnvrtc.so.12'
+'./libcudart.so.12' -> '../nvidia/cuda_runtime/lib/libcudart.so.12'
+'./libcudnn_adv.so.9' -> '../nvidia/cudnn/lib/libcudnn_adv.so.9'
+'./libcudnn_cnn.so.9' -> '../nvidia/cudnn/lib/libcudnn_cnn.so.9'
+'./libcudnn_engines_precompiled.so.9' -> '../nvidia/cudnn/lib/libcudnn_engines_precompiled.so.9'
+'./libcudnn_engines_runtime_compiled.so.9' -> '../nvidia/cudnn/lib/libcudnn_engines_runtime_compiled.so.9'
+'./libcudnn_engines_tensor_ir.so.9' -> '../nvidia/cudnn/lib/libcudnn_engines_tensor_ir.so.9'
+'./libcudnn_graph.so.9' -> '../nvidia/cudnn/lib/libcudnn_graph.so.9'
+'./libcudnn_heuristic.so.9' -> '../nvidia/cudnn/lib/libcudnn_heuristic.so.9'
+'./libcudnn_ops.so.9' -> '../nvidia/cudnn/lib/libcudnn_ops.so.9'
+'./libcudnn.so.9' -> '../nvidia/cudnn/lib/libcudnn.so.9'
+'./libcufft.so.11' -> '../nvidia/cufft/lib/libcufft.so.11'
+'./libcufftw.so.11' -> '../nvidia/cufft/lib/libcufftw.so.11'
+'./libcusolverMg.so.11' -> '../nvidia/cusolver/lib/libcusolverMg.so.11'
+'./libcusolver.so.11' -> '../nvidia/cusolver/lib/libcusolver.so.11'
+'./libcusparse.so.12' -> '../nvidia/cusparse/lib/libcusparse.so.12'
+'./libnccl.so.2' -> '../nvidia/nccl/lib/libnccl.so.2'
+'./libnvJitLink.so.12' -> '../nvidia/nvjitlink/lib/libnvJitLink.so.12'
+'./libnvshmem_host.so.3' -> '../nvidia/nvshmem/lib/libnvshmem_host.so.3'
+'./nvshmem_bootstrap_mpi.so.3' -> '../nvidia/nvshmem/lib/nvshmem_bootstrap_mpi.so.3'
+'./nvshmem_bootstrap_pmi2.so.3' -> '../nvidia/nvshmem/lib/nvshmem_bootstrap_pmi2.so.3'
+'./nvshmem_bootstrap_pmi.so.3' -> '../nvidia/nvshmem/lib/nvshmem_bootstrap_pmi.so.3'
+'./nvshmem_bootstrap_pmix.so.3' -> '../nvidia/nvshmem/lib/nvshmem_bootstrap_pmix.so.3'
+'./nvshmem_bootstrap_shmem.so.3' -> '../nvidia/nvshmem/lib/nvshmem_bootstrap_shmem.so.3'
+'./nvshmem_bootstrap_uid.so.3' -> '../nvidia/nvshmem/lib/nvshmem_bootstrap_uid.so.3'
+'./nvshmem_transport_ibdevx.so.5' -> '../nvidia/nvshmem/lib/nvshmem_transport_ibdevx.so.5'
+'./nvshmem_transport_ibgda.so.5' -> '../nvidia/nvshmem/lib/nvshmem_transport_ibgda.so.5'
+'./nvshmem_transport_ibrc.so.5' -> '../nvidia/nvshmem/lib/nvshmem_transport_ibrc.so.5'
+'./nvshmem_transport_libfabric.so.5' -> '../nvidia/nvshmem/lib/nvshmem_transport_libfabric.so.5'
+'./nvshmem_transport_ucx.so.5' -> '../nvidia/nvshmem/lib/nvshmem_transport_ucx.so.5'
+~/Learn/AI-Research
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+2026-06-10 19:20:42.043168: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 19:20:42.073689: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1781108444.024669   48432 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1781108444.032488   48432 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1781108444.121359   48432 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5796 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0
+2026-06-10 19:20:44.170472: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleLoadData(&module, data)' failed with 'CUDA_ERROR_INVALID_PTX'
+
+2026-06-10 19:20:44.170487: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleGetFunction(&function, module, kernel_name)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+
+2026-06-10 19:20:44.170494: W tensorflow/core/framework/op_kernel.cc:1842] INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+2026-06-10 19:20:44.170500: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/mutaician/Learn/AI-Research/.venv/lib/python3.12/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/mutaician/Learn/AI-Research/.venv/lib/python3.12/site-packages/tensorflow/python/framework/ops.py", line 6027, in raise_from_not_ok_status
+    raise core._status_to_exception(e) from None  # pylint: disable=protected-access
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InternalError: {{function_node __wrapped__Mul_device_/job:localhost/replica:0/task:0/device:GPU:0}} 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE' [Op:Mul] name: 
+
+AI-Research main  ? ✗ ln -sf $(find $(dirname $(dirname $(python -c "import nvidia.cuda_nvcc;         
+print(nvidia.cuda_nvcc.__file__)"))/*/bin/) -name ptxas -print -quit) $VIRTUAL_ENV/bin/ptxas
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+2026-06-10 19:20:57.741196: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 19:20:57.766811: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1781108459.390764   48983 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1781108459.397659   48983 gpu_device.cc:2431] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1781108459.489297   48983 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5796 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0
+2026-06-10 19:20:59.530615: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleLoadData(&module, data)' failed with 'CUDA_ERROR_INVALID_PTX'
+
+2026-06-10 19:20:59.530632: W tensorflow/compiler/mlir/tools/kernel_gen/tf_gpu_runtime_wrappers.cc:40] 'cuModuleGetFunction(&function, module, kernel_name)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+
+2026-06-10 19:20:59.530638: W tensorflow/core/framework/op_kernel.cc:1842] INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+2026-06-10 19:20:59.530645: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: INTERNAL: 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/mutaician/Learn/AI-Research/.venv/lib/python3.12/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/mutaician/Learn/AI-Research/.venv/lib/python3.12/site-packages/tensorflow/python/framework/ops.py", line 6027, in raise_from_not_ok_status
+    raise core._status_to_exception(e) from None  # pylint: disable=protected-access
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tensorflow.python.framework.errors_impl.InternalError: {{function_node __wrapped__Mul_device_/job:localhost/replica:0/task:0/device:GPU:0}} 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE' [Op:Mul] name: 
+
+AI-Research main  ? ✗ deactivate
+
+AI-Research main  ? ❯ uv venv tf-gpu-nightly
+Using CPython 3.12.13
+Creating virtual environment at: tf-gpu-nightly
+Activate with: source tf-gpu-nightly/bin/activate
+
+AI-Research main  ? ❯ source tf-gpu-nightly/bin/activate
+
+AI-Research main  ? ❯ uv pip install tf-nightly[and-cuda]
+Using Python 3.12.13 environment at: tf-gpu-nightly
+Resolved 46 packages in 4.45s
+Prepared 2 packages in 3m 59s
+Installed 46 packages in 834ms
+ + absl-py==2.4.0
+ + astunparse==1.6.3
+ + certifi==2026.5.20
+ + charset-normalizer==3.4.7
+ + flatbuffers==25.12.19
+ + gast==0.7.0
+ + google-pasta==0.2.0
+ + grpcio==1.81.0
+ + h5py==3.14.0
+ + idna==3.18
+ + keras-nightly==3.15.0.dev2026061005
+ + libclang==18.1.1
+ + markdown-it-py==4.2.0
+ + mdurl==0.1.2
+ + ml-dtypes==0.5.4
+ + namex==0.1.0
+ + numpy==2.4.6
+ + nvidia-cublas-cu12==12.9.2.10
+ + nvidia-cuda-cccl-cu12==12.9.27
+ + nvidia-cuda-cupti-cu12==12.9.79
+ + nvidia-cuda-nvcc-cu12==12.9.86
+ + nvidia-cuda-nvrtc-cu12==12.9.86
+ + nvidia-cuda-runtime-cu12==12.9.79
+ + nvidia-cudnn-cu12==9.23.1.3
+ + nvidia-cufft-cu12==11.4.1.4
+ + nvidia-curand-cu12==10.3.10.19
+ + nvidia-cusolver-cu12==11.7.5.82
+ + nvidia-cusparse-cu12==12.5.10.65
+ + nvidia-nccl-cu12==2.30.7
+ + nvidia-nvjitlink-cu12==12.9.86
+ + nvidia-nvshmem-cu12==3.6.5
+ + opt-einsum==3.4.0
+ + optree==0.19.1
+ + packaging==26.2
+ + protobuf==7.35.0
+ + pygments==2.20.0
+ + requests==2.34.2
+ + rich==15.0.0
+ + setuptools==82.0.1
+ + six==1.17.0
+ + termcolor==3.3.0
+ + tf-nightly==2.22.0.dev20260530
+ + typing-extensions==4.15.0
+ + urllib3==2.7.0
+ + wheel==0.47.0
+ + wrapt==2.2.1
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781108894.600244   55010 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781108894.711532   55010 pjrt_api.cc:97] PJRT_Api is set for device type gpu
+I0000 00:00:1781108894.714497   55010 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781108897.408447   55010 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1781108898.498507   55010 gpu_device.cc:2458] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1781108898.506663   55010 gpu_device.cc:2458] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1781108898.602764   55010 gpu_device.cc:2042] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5796 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+tf.Tensor(-1512.6755, shape=(), dtype=float32)
+
+AI-Research main  ? ❯ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781108916.792435   55526 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1781108916.813726   55526 pjrt_api.cc:97] PJRT_Api is set for device type gpu
+I0000 00:00:1781108916.815050   55526 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781108917.463137   55526 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1781108917.636086   55526 gpu_device.cc:2458] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]

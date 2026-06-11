@@ -66,3 +66,15 @@ ML Pipeline
 5. Deploy - real world use and continuous monitoring
 
 case study - google learnlm, protoNLM, gemma models
+
+got an "InternalError: {{function_node __wrapped__Equal_device_/job:localhost/replica:0/task:0/device:GPU:0}} 'cuLaunchKernel(function, gridX, gridY, gridZ, blockX, blockY, blockZ, 0, reinterpret_cast<CUstream>(stream), params, nullptr)' failed with 'CUDA_ERROR_INVALID_HANDLE' [Op:Equal] name: " error. effects of using diff environment other than the tutorials suggested. its good for debugging though.  
+
+so I did some debugging. the obvious going to chatgpt(I had depleted my codex credits 😅) and try to ask for help. wrong idea in teh first place. so it gave me some not working solutions overcomplicating things. you know create this virtual environment and  this specific version of smoke_test code. after being unsuccessful with chatgpt's help. I decided to go the oldway google search with -ai(no ai searches) going through medium blog, tensorflow github past issues next is the documentation I had to follow the documentation that the error suggested 😂: https://www.tensorflow.org/install/gpu but it didn't work turns out I was missing something small that was just out in the open but my eyes didn't seem to catch it. I then stumbled upon this post in nvidia forum: https://forums.developer.nvidia.com/t/how-can-i-use-my-rtx-5060ti-to-training-model-by-using-tensorflow/350054 so the solution was a bit long and suggested conda(I am a uv guy) so decided to try one commad which is to install the tensorflow nightly version and it worked. I am here celebrating and I haven't even trained my own SML 😅. 
+As I suspected another error: "LLVM ERROR: PTX version 8.5 does not support target 'sm_120'. Minimum required PTX version is 8.7. Either remove the PTX version to use the default, or increase it to at least 8.7."  
+
+I had to create my own local notebook.
+Solution another specific tensorflow version ```uv pip install tf-nightly[and-cuda]==2.21.0.dev20251017``` 
+solving one error getting another is going to be my new normality in this course  "Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence" got this when trying to shuffle the dataset. 
+its weird its like the warning occurs randomly. when I rerun the cell it sometimes it occurs other times not so a bit confused
+
+Its getting tougher - just realized that the training function is form the ai_foundations the library that was causing the mismatching issues so the solution now is to either fork the repo and fix it manually or copy/donwload only the necessary code I need 
