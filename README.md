@@ -78,3 +78,7 @@ solving one error getting another is going to be my new normality in this course
 its weird its like the warning occurs randomly. when I rerun the cell it sometimes it occurs other times not so a bit confused
 
 Its getting tougher - just realized that the training function is form the ai_foundations the library that was causing the mismatching issues so the solution now is to either fork the repo and fix it manually or copy/donwload only the necessary code I need 
+So the solution was copying the codes I need and editing it on the fly. forking the repo and updating the dependencies introduced even more bugs 
+one bug I encountered had to do with this new library "tensorflow.python.framework.ops.EagerTensor" so jax doesn't recognize this.
+fyi I had to dump all the code I needed in one file for instance the training file has 769 LOC multiple classes and functions.
+All this debugging led me to forget that I came to this course to learn. as I speedrun the rest of the codes in *gdm_lab_1.5_local.ipynb* to ensure all run. I have to go back and see what I missed 
